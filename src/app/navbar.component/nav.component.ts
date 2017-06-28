@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { GolfService } from './services/golf.service';
+import { GolfService } from '../services/golf.service';
 
 @Component({
   selector: 'app-root',
   providers: [GolfService],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class MainComponent implements OnInit {
+export class GolfNavbar {
   constructor(
     private golfService: GolfService
   ) { }

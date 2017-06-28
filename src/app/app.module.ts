@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import {provideStore} from '@ngrx/store';
 import { GolfService } from './services/golf.service';
 
 
@@ -17,6 +18,9 @@ import { MainComponent } from './app.component';
   providers: [
     GolfService
   ],
-  bootstrap: [MainComponent]
+  bootstrap: [
+    MainComponent,
+    provideStore({})//put reducers in here.
+    ]
 })
 export class AppModule { }

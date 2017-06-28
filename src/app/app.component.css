@@ -1,7 +1,36 @@
-div{
-  height: 200px;
+#main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+}
+
+.game-nav{
+  width: 100%;
+}
+
+.left-menu {
+  text-align: left;
+  height: 600px;
+  width: 350px;
+  overflow: scroll;
+  margin: 20px auto;
+  border: 3px solid green;
+}
+
+.course {
+  text-align: left;
+  height: 600px;
   width: 300px;
   overflow: scroll;
   margin: 20px auto;
   border: 3px solid green;
+}
+
+.course-select-button {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  margin: 10px auto;
 }

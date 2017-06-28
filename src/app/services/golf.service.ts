@@ -16,19 +16,20 @@ export class GolfService {
 
   private baseUrl = 'http://golf-courses-api.herokuapp.com'
 
-  getCourseOptions(): Observable{
+  getCourseOptions(): Observable<Response> {
     let body = JSON.stringify(mock.location); // Stringify payload
     let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options = new RequestOptions({ headers: headers }); // Create a request option
 
     return this.http.post(`${this.baseUrl}/courses`, body, options) // ...using post request
-      .map((response) => response.json()) // ...and calling .json() on the response to return data
+      .map((response: Response) => response.json())
+      .map(({ courses }) => courses)
       .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
   }
 
-  getCourseInfo(id): Observable<Response>{
+  getCourseInfo(id): Observable<Response> {
     return this.http.get(`${this.baseUrl}/courses/${id}`)
-    .map((response: Response) => response.json()) // ...and calling .json() on the response to return data
-    .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+      .map((response: Response) => response.json()) // ...and calling .json() on the response to return data
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
   }
 }
